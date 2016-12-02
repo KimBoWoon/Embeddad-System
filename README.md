@@ -5,9 +5,9 @@
 
 ## Develop Stack
 * Client
-** Andorid 5.0(Lollipop)
-** Raspberry3
+  * Andorid 5.0(Lollipop)
+  * Raspberry3
 * Server
-** Python Flask
+  * Python Flask
 * Database
-** MariaDB
+  * MariaDB
