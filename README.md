@@ -6,7 +6,7 @@
 ## Develop Stack
 * Client
   * Andorid 5.0(Lollipop)
-  * Raspberry3
+  * Raspberry Pi3
 * Server
   * Python Flask
 * Database
