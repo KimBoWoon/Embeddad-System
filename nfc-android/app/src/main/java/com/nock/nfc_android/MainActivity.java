@@ -102,7 +102,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     private NdefMessage getTextAsNdef() {
-        byte[] textBytes = mTextView.getText().toString().getBytes();
+//        byte[] textBytes = mTextView.getText().toString().getBytes();
+        byte[] textBytes = "Hello, World!".getBytes();
 
         NdefRecord textRecord = new NdefRecord(NdefRecord.TNF_MIME_MEDIA,
                 "text/plain".getBytes(),
