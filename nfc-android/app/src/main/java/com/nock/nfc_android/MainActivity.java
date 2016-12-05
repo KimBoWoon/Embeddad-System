@@ -6,7 +6,7 @@ import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.EditText;
+import android.widget.TextView;
 
 import com.androidquery.AQuery;
 
@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private AQuery aq;
     private NfcAdapter nfcAdapter;
     private PendingIntent pendingIntent;
-    private EditText mInputText;
+    private TextView mTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
         if (tag != null) {
             byte[] tagId = tag.getId();
-            mInputText.setText("TagID: " + toHexString(tagId));
+            mTextView.setText("TagID: " + toHexString(tagId));
         }
     }
 
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     public void initView() {
         aq = new AQuery(this);
 
-        mInputText = (EditText) findViewById(R.id.main_input_text);
+        mTextView = (TextView) findViewById(R.id.main_text_view);
 
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
         Intent intent = new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
