@@ -1,8 +1,15 @@
-import nfc
+import nxppy
+import time
 
-def connected(tag):
-	print tag
-	return False
+mifare = nxppy.Mifare()
 
-clf = nfc.ContactlessFrontend('usb')
-clf.connect(rdwr={'on-connect': connected})
+# Print card UIDs as they are detected
+while True:
+    try:
+        uid = mifare.select()
+        print(uid)
+    except nxppy.SelectError:
+        # SelectError is raised if no card is in the field.
+        pass
+
+    time.sleep(1)
