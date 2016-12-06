@@ -22,6 +22,7 @@ class DBManager:
 
     @staticmethod
     def init_db():
+	from user import User
         Base.metadata.create_all(bind=DBManager.__engine)
 
 
