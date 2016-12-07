@@ -1,6 +1,5 @@
-import time
+import time, nxppy
 from nfcserver.model.user import User
-import nxppy
 from flask import render_template, request, redirect, url_for
 from nfcserver.db import dao
 
