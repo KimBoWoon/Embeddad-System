@@ -1,14 +1,11 @@
+from nfcserver import create_app
 from flask import Flask
-from db import DBManager, dao
+from nfcserver.db import DBManager, dao
 from flask import render_template, request, session, redirect, url_for
-from user import User
+from nfcserver.model.user import User
 import nxppy, time
 
-app = Flask(__name__)
-
-def databaseConnect():
-	DBManager.init('mysql+pymysql://root:rlaqhdns@localhost/nfc?charset=utf8', True)
-	DBManager.init_db()
+app = create_app()
 
 def nfcTag():
 	print('NFC TAG')
@@ -44,5 +41,6 @@ def index():
 		return redirect(url_for('indexPage'))
 
 if __name__ == '__main__':
-	databaseConnect()
+	print('start')
+	print(dao)
 	app.run(host='0.0.0.0', port=8000, debug=True)
