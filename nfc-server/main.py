@@ -1,6 +1,5 @@
 from flask import Flask
-from sqlalchemy import create_engine
-from db import DBManager
+from db import DBManager, dao
 from flask import render_template, request, session, redirect, url_for
 from user import User
 import nxppy, time
