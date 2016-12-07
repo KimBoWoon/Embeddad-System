@@ -9,7 +9,7 @@ def create_app():
     DBManager.init(db_url, True)
     DBManager.init_db()
 
-    from nfcserver.controller import index
+    from nfcserver.controller import signup
     from nfcserver.blueprint import nfc
     app.register_blueprint(nfc)
 

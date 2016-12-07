@@ -1,0 +1,34 @@
+<html>
+<head>
+</head>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <td>
+                user
+            </td>
+        </tr>
+        </thead>
+        <tbody>
+        <form method="POST" action="{{ url_for('.signup') }}">
+            <tr>
+                <td>
+                    ID
+                </td>
+                <td>
+                    <label>
+                        <input type="text" name="name">
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button class="btn btn-primary">Login</button>
+                </td>
+            </tr>
+        </form>
+        </tbody>
+    </table>
+</div>
+</html>
