@@ -9,28 +9,23 @@
     <thead>
     <tr>
         <td>
-            user
+            ID
+        </td>
+        <td>
+            NFC-ID
         </td>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>
-            ID
-        </td>
-        <td>
-            {{ users.name }}
-        </td>
-    </tr>
-    <tr>
-        <td>
-            NFC-ID
-        </td>
-        <td>
-            {{ users.nfcid }}
-        </td>
-    </tr>
+    {% for user in users %}
+        <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.nfcid }}</td>
+            <td>{{ user.date }}</td>
+        </tr>
+    {% endfor %}
     </tbody>
 </table>
+<a href="{{ url_for('.signup') }}" class="btn btn-success">SignUp</a>
 </body>
 </html>
