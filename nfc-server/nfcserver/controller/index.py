@@ -2,6 +2,7 @@ import time, nxppy
 from nfcserver.model.user import User
 from flask import render_template, request, redirect, url_for
 from nfcserver.db import dao
+from nfcserver.blueprint import nfc
 
 
 def nfcTag():
@@ -20,12 +21,12 @@ def nfcTag():
         time.sleep(1)
 
 
-@app.route('/')
+@nfc.route('/')
 def indexPage():
     return render_template('index.html')
 
 
-@app.route('/', methods=['POST'])
+@nfc.route('/', methods=['POST'])
 def index():
     if request.method == 'POST':
         name = request.form['name']
@@ -36,4 +37,4 @@ def index():
         dao.add(new_user)
         dao.commit()
 
-        return redirect(url_for('indexPage'))
+        return redirect(url_for('.indexPage'))
