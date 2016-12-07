@@ -24,6 +24,7 @@ class DBManager:
     @staticmethod
     def init_db():
         from nfcserver.model.user import User
+        from nfcserver.model.access import Access
         Base.metadata.create_all(bind=DBManager.__engine)
 
 

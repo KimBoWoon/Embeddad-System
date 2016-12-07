@@ -16,9 +16,14 @@ def indexPage():
         try:
             nfcid = mifare.select()
             print(nfcid)
+            user = dao.query(User).filter(User.nfcid == nfcid).first()
+
+            new_access = Access(user.name, user.nfcid)
+            dao.add(new_access)
+            dao.commit()
+
             users = dao.query(Access).order_by(Access.date.asc()).all()
-            # return render_template('index.html', users=users)
-            return redirect(url_for('.indexPage', users=users))
+#            return render_template('index.html', users=users)
         except nxppy.SelectError:
             # SelectError is raised if no card is in the field.
             # print('nxppy.SelectError')
