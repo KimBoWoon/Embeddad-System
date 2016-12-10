@@ -11,3 +11,8 @@
   * Python Flask
 * Database
   * MariaDB
+
+## Installation
+```
+pip install -r requirements.txt
+```
