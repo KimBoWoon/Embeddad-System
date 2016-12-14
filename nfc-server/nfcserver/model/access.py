@@ -15,4 +15,4 @@ class Access(Base):
     def __init__(self, name, nfcid):
         self.name = name
         self.nfcid = nfcid
-        self.date = datetime.today().strftime("%Y-%m-%d %H:%M:%S")
+        self.date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")

@@ -3,6 +3,7 @@ from nfcserver.model.user import User
 from flask import render_template, request, redirect, url_for
 from nfcserver.db import dao
 from nfcserver.blueprint import nfc
+from exception import NoneUserName
 import nxppy, time
 
 
@@ -25,10 +26,15 @@ def indexPage():
             user = dao.query(User).filter(User.nfcid == nfcid).first()
 
             new_access = Access(user.name, user.nfcid)
+            if new_access == None:
+                raise NoneUserName
             dao.add(new_access)
             dao.commit()
+            print(new_access.name + " 출입")
+        except NoneUserName as e:
+            print(e)
         except nxppy.SelectError:
             # SelectError is raised if no card is in the field.
             # print('nxppy.SelectError')
-            pass
+            print('NFC Tag를 접촉해주세요')
         time.sleep(1)
