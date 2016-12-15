@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from nfcserver.model.access import Access
 from nfcserver.model.user import User
 from flask import render_template, request, redirect, url_for
@@ -30,7 +31,7 @@ def indexPage():
                 raise NoneUserName
             dao.add(new_access)
             dao.commit()
-            print(new_access.name + " 출입")
+            print(new_access.name + " Access")
         except NoneUserName as e:
             print(e)
         except nxppy.SelectError:

@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from nfcserver import create_app
 
 app = create_app()
