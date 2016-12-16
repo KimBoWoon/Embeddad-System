@@ -25,10 +25,11 @@ def indexPage():
             nfcid = mifare.select()
             print(nfcid)
             user = dao.query(User).filter(User.nfcid == nfcid).first()
-
-            new_access = Access(user.name, user.nfcid)
-            if new_access == None:
+            if user == None:
                 raise NoneUserName
+            new_access = Access(user.name, user.nfcid)
+            #if new_access == None:
+                #raise NoneUserName
             dao.add(new_access)
             dao.commit()
             print(new_access.name + " Access")
