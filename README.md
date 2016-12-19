@@ -20,6 +20,7 @@ pip install -r requirements.txt
 ## Execution
 ```
 python main.py
+localhost:8000
 ```
 
 ## URL
