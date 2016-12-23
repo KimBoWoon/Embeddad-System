@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 from nfcserver.model.access import Access
 from nfcserver.model.user import User
 from flask import render_template, request, redirect, url_for
@@ -25,11 +25,9 @@ def indexPage():
             nfcid = mifare.select()
             print(nfcid)
             user = dao.query(User).filter(User.nfcid == nfcid).first()
-            if user == None:
+            if user is None:
                 raise NoneUserName
             new_access = Access(user.name, user.nfcid)
-            #if new_access == None:
-                #raise NoneUserName
             dao.add(new_access)
             dao.commit()
             print(new_access.name + " Access")
